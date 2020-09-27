@@ -1,0 +1,70 @@
+body { 
+    margin: 0; 
+    height: 100vh;
+}
+  
+canvas { 
+    display: block;
+}
+
+#logo{
+    position: absolute;
+    left: 30px;
+    top: 100px;
+    z-index: 100;
+  
+}
+
+path{
+    fill: rgb(255, 255, 255);
+    color:white;
+    stroke: white;
+}
+
+#logo-text{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 100;
+   
+}
+
+#steam-animation{
+    position:absolute;
+    left: 160px;
+    top: 50px;
+    width: 100px;
+    height: 100px;
+    z-index: 99;
+    opacity: 0;
+}
+
+#steam-animation2{
+    position:absolute;
+    left: 180px;
+    top: 60px;
+    width: 100px;
+    height: 100px;
+    z-index: 80;
+    opacity: 0;
+}
+
+#steam-animation3{
+    position:absolute;
+    left: 180px;
+    top: 70px;
+    width: 100px;
+    height: 100px;
+    z-index: 99;
+    opacity: 0;
+}
+
+#steam-animation4{
+    position:absolute;
+    left: 190px;
+    top: 50px;
+    width: 100px;
+    height: 100px;
+    z-index: 99;
+    opacity: 0;
+}
