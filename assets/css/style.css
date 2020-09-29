@@ -7,10 +7,29 @@ canvas {
     display: block;
 }
 
+.logo-container{
+    position: absolute;
+    z-index: 500;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0, .1)
+}
+
+.logo-wrapper{
+    position: absolute;
+    left: 10px;
+    top: 0px;
+    z-index: 501;
+    width: 325px;
+    height: 380px;
+}
+
 #logo{
     position: absolute;
-    left: 30px;
-    top: 100px;
+    left: 0;
+    top: 85px;
     z-index: 100;
   
 }
@@ -18,12 +37,12 @@ canvas {
 path{
     fill: rgb(255, 255, 255);
     color:white;
-    stroke: white;
+    /* stroke: black; */
 }
 
 #logo-text{
     position: absolute;
-    left: 0px;
+    left: -30px;
     top: 0px;
     z-index: 100;
    
@@ -31,40 +50,63 @@ path{
 
 #steam-animation{
     position:absolute;
-    left: 160px;
-    top: 50px;
+    left: 100px;
+    top: 25px;
     width: 100px;
     height: 100px;
-    z-index: 99;
+    z-index: 300;
     opacity: 0;
 }
 
 #steam-animation2{
     position:absolute;
-    left: 180px;
-    top: 60px;
+    left: 90px;
+    top: 35px;
     width: 100px;
     height: 100px;
-    z-index: 80;
+    z-index: 300;
     opacity: 0;
 }
 
 #steam-animation3{
     position:absolute;
-    left: 180px;
-    top: 70px;
+    left: 90px;
+    top: 45px;
     width: 100px;
     height: 100px;
-    z-index: 99;
+    z-index: 300;
     opacity: 0;
 }
 
 #steam-animation4{
     position:absolute;
-    left: 190px;
-    top: 50px;
+    left: 100px;
+    top: 15px;
     width: 100px;
     height: 100px;
-    z-index: 99;
+    z-index: 300;
     opacity: 0;
+}
+
+#info-container{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: white;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    display: none;
+    z-index: 300;
+}
+
+#close-info-container{
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    color: black;
+    z-index: 305;
+    top: 0;
+    right: 0;
+    cursor: pointer;
 }
