@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <title>ThatDevGuy</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -26,6 +26,15 @@
         renderer.shadowMap.enabled = true;
 
         document.body.appendChild(renderer.domElement);
+        
+        //******CANVAS ASPECT RATIO 16:9 OPTION*****
+        // var canvas = document.querySelector("canvas");
+
+        // window.addEventListener('resize', () => {
+        //     renderer.setSize(canvas.width, canvas.height);
+        //     camera.aspect = canvas.width / canvas.height;
+        //     camera.updateProjectionMatrix();
+        // });
 
         window.addEventListener('resize', () => {
             renderer.setSize(window.innerWidth, window.innerHeight);
@@ -36,7 +45,7 @@
         //var controls = new THREE.OrbitControls( camera, renderer.domElement );
         var raycaster = new THREE.Raycaster();
         var mouse = new THREE.Vector2();
-        camera.position.set( .5, 1.5, -.4 );
+        camera.position.set( .5, 1.65, -.4 );
         camera.lookAt(.24, -.4, -.9);
         
         //controls.update();
@@ -44,7 +53,7 @@
         var size = 1;
         var divisions = 10;
 
-        var tileColor = "#e0ffe9"
+        var tileColor = "#e0ffe9";
         // var gridHelper = new THREE.GridHelper( size, divisions );
         // scene.add( gridHelper );
 
@@ -284,7 +293,6 @@
             var newvalueX = (window.innerWidth * mouse.x)  / 100000;
             var newvalueY = (window.innerHeight * mouse.y) / 10000;
 
-            console.log(newvalueX, newvalueY);
             camera.lookAt(newvalueX +.27, newvalueY, -.9);
             
             raycaster.setFromCamera(mouse, camera);
@@ -337,7 +345,9 @@
               default: display = "";
             }
             
-            var tl2 = new TimelineMax();
+            var tl2 = new TimelineMax({onComplete: ()=>{
+                closeBtn.addEventListener('click', closeBtnClick);
+            }});
 
                 if(active === false){
                     if(intersects[0].object.name != "ground"){
@@ -346,8 +356,8 @@
                         intersectsCoords = {...intersects[0].object.position};  
                         tl2.to( '.logo-animation', {display: 'none'});
                         tl2.to( '#info-container', {display: "block"});
-                        tl2.to( '.logo', {opacity: 0, duration: .2});
-                        tl2.to( '.logo', {display: "none", duration: .1});
+                        tl2.to( '.logo', {opacity: 0, duration: .01});
+                        tl2.to( '.logo', {display: "none", duration: .01});
                         tl2.to( intersects[ 0 ].object.position, {x:camera.position.x - .2, y:camera.position.y -.4, z:camera.position.z -.2, duration: 1}, "-.1");
                         tl2.to( intersects[ 0 ].object.rotation, {x:camera.rotation.x, y:camera.rotation.y, z:camera.rotation.z , duration: 1}, "-=1.5");
                         tl2.to( '#info-container', {opacity: 1, duration: 1}, "-=1");
@@ -358,31 +368,27 @@
                     };   
                 } else {
                     active = !active;
-                    // tl2.to( '#info-container', {opacity: 0, duration: 1});
-                    // tl2.to( '.logo', {display: "block"}, "-=1");
-                    // tl2.to( '.logo', {opacity: 1, duration: .7}, "+=.1");
-                    // tl2.to( intersected.object.position, {x:intersectsCoords.x, y:.2, z:intersectsCoords.z, duration: 1}, "-.05");
-                    // tl2.to( intersected.object.rotation, {x:-1.58, y:0, z:0 , duration: 1}, "-.05");
-                    // tl2.to( '#info-container', {display: "none"});
-                    // tl2.to( '.logo-animation', {display: 'block'}, "-=1");
                     window.addEventListener('mousemove', onMouseMove, false);
                 };
         };
 
         function closeBtnClick() {
+          closeBtn.removeEventListener('click', closeBtnClick);
           active = !active;
           var transitionTl = new TimelineMax({onComplete: () => {
                           window.addEventListener('click', onMouseClick, false);
-                          window.addEventListener('mousemove', onMouseMove, false);
                     }});
-          transitionTl.to( '#info-container', {opacity: 0, duration: 1});
-          transitionTl.to( '.logo', {display: "block"}, "-=1");
-          transitionTl.to( '.logo', {opacity: 1, duration: .7}, "+=.1");
+          transitionTl.to( '#info-container', {opacity: 0, duration: .1});
+          transitionTl.to( '.logo', {display: "block"}, "-=.1");
+          transitionTl.to( '.logo', {opacity: 1, duration: .7}, ".9");
           transitionTl.to( intersected.object.position, {x:intersectsCoords.x, y:.2, z:intersectsCoords.z, duration: 1}, "-.05");
           transitionTl.to( intersected.object.rotation, {x:-1.58, y:0, z:0 , duration: 1}, "-.05");
-          transitionTl.to( '#info-container', {display: "none"});
-          transitionTl.to( display, {display: "none"});
-          transitionTl.to( '.logo-animation', {display: 'block'}, "-=1");
+          
+          window.addEventListener('mousemove', onMouseMove, false);
+          
+          transitionTl.to( '#info-container', {display: "none"}, ".01");
+          transitionTl.to( display, {display: "none"}, ".01");
+          transitionTl.to( '.logo-animation', {display: 'block'}, "+=.1");
         };
 
         window.addEventListener('mousemove', onMouseMove, false);
@@ -1053,9 +1059,9 @@
 
 
 <div id="info-container">
-  <div id="close-info-container">X</div>
+  <div id="close-info-container"><img src="./assets/close.png" alt="close button" /></div>
   <div id="about-me-container" class="details-screen">
-    <div class="title">Clan IMBA</div>
+    <div class="title">About Me</div>
     <div class="media-wrapper"></div>
     <div class="details-main-flex-wrap">
       <div class="details-flex-wrap">
@@ -1079,33 +1085,34 @@
     </div>
   </div>
   <div id="faux-dashboard-container" class="details-screen">
-    <div class="title">Clan IMBA</div>
+    <div class="title">Faux Dashboard</div>
     <div class="media-wrapper"></div>
     <div class="details-main-flex-wrap">
       <div class="details-flex-wrap">
-      <div class="links-wrapper">
-        <div class="big-buttons">View Code</div>
-        <div class="big-buttons">View Site</div>
+        <a href="https://github.com/thatdevguy1/faux_dashboard" target="_blank"><div class="big-buttons">View Code</div></a>
+        <a href="thatdevguy1.faux-dashboard.github.io" target="_blank"><div class="big-buttons">View Site</div></a>
       </div>
-    </div>
     <div class="details-flex-wrap">
       <div class="project-info">
         <ul>
-          <li>Used React to create a single page application</li>
-          <li>Used Material UI for some design elements</li>
+          <li>Used  <span class="highlighter">React</span> to create a single page application</li>
+          <li>Used <span class="highlighter">Material</span> UI for some design elements</li>
+          <li>Used <span class="highlighter">Chart.js</span> to create the graphs</li>
+          <li>Used an external <span class="highlighter">API</span> to get the graph data</li>
+          <li>Used <span class="highlighter">Axios</span> to make <span class="highlighter">AJAX</span> calls</li>
         </ul>
       </div>
     </div>
     </div>
   </div>
   <div id="clan-imba-container" class="details-screen">
-    <div class="title">Clan IMBA</div>
+    <div class="title">Clan imba</div>
     <div class="media-wrapper"></div>
     <div class="details-main-flex-wrap">
       <div class="details-flex-wrap">
         <a href="https://github.com/thatdevguy1/clanimba_MERN" target="_blank"> <div class="big-buttons">View Code</div> </a>
         <a href="https://clanimba.herokuapp.com" target="_blank"> <div class="big-buttons">View Site</div> </a>
-    </div>
+      </div>
     <div class="details-flex-wrap">
       <div class="project-info">
         <ul>
@@ -1126,18 +1133,19 @@
     <div class="media-wrapper"></div>
     <div class="details-main-flex-wrap">
       <div class="details-flex-wrap">
-      <div class="links-wrapper">
-        <a href=""> <div class="big-buttons">Code Not Available</div> </a>
+        <a> <div class="big-buttons unclickable">Code Not Available</div> </a>
         <a href="www.tows4low.ca"> <div class="big-buttons">View Site</div> </a>
       </div>
-    </div>
     <div class="details-flex-wrap">
       <div class="project-info">
         <ul>
-          <li>Used Angular to create a single page application</li>
-          <li>Used bootstrap for some design elements</li>
-          <li>Used Node and Express for the server / api</li>
-          <li>Used MongoDB to store account and messaging information</li>
+          <li>Used <span class="highlighter">Angular</span> to create a single page application</li>
+          <li>Used <span class="highlighter">Bootstrap</span> for some design elements</li>
+          <li>Used <span class="highlighter">Node</span> and <span class="highlighter">Express</span> for the server / api</li>
+          <li>Used <span class="highlighter">MongoDB</span> to store account and messaging information</li>
+          <li>Used <span class="highlighter">Stripe</span> to process payments through the app</li>
+          <li>Used <span class="highlighter">Cordova</span> to convert the web app to a phone app (available on Iphone and Android app stores)</li>
+
         </ul>
       </div>
     </div>
@@ -1166,7 +1174,7 @@
 
   let closeBtn = document.getElementById("close-info-container");
 
-  closeBtn.addEventListener('click', closeBtnClick);
+  
 </script>
 
 </body>

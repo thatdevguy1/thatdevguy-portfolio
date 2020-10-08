@@ -105,13 +105,17 @@ path{
 
 #close-info-container{
     position: absolute;
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
     color: black;
     z-index: 405;
     top: 0;
     right: 0;
     cursor: pointer;
+}
+
+#close-info-container > img {
+    width: 100%;
 }
 
 
@@ -147,8 +151,13 @@ path{
 }
 
 .title {
+    position: relative;
     text-align: center;
-    border: solid 1px black;
+    color: rgb(0, 185, 161);
+    font-family: 'Sansita Swashed', cursive;
+    font-size: 25px;
+    padding: 10px;
+    background:  #f7f7f7;
 }
 
 .project-info{
@@ -166,7 +175,7 @@ path{
 }
 
 .media-wrapper{
-    height: 60vh;
+    height: 55vh;
     border: solid 1px black;
     background-color: black;
 }
@@ -208,3 +217,13 @@ a{
     text-decoration: none;
     width: 60%;
 }
+
+.unclickable:hover{
+    background: rgb(255, 63, 63);
+}
+
+/* canvas{
+    width: 100vw !important;
+    height: 56.25vw !important;
+   
+} */
