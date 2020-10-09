@@ -158,6 +158,30 @@
         card.name = "card5"
         scene.add( card );
 
+        //top top top left
+        var geometry = new THREE.BoxGeometry( 1.5, 1, .03 );
+        var material = new THREE.MeshLambertMaterial({color: (new THREE.Color(tileColor))});
+         
+        var card = new THREE.Mesh( geometry, material );
+        card.castShadow = true;
+        card.receiveShadow = true;
+        card.position.set(-2.24, .2, -2.1);
+        card.rotation.x = -1.58;
+        card.name = "card5"
+        scene.add( card );
+        
+        //outter bottom left again?
+        var geometry = new THREE.BoxGeometry( 1.5, 1, .03 );
+        var material = new THREE.MeshLambertMaterial({color: (new THREE.Color(tileColor))});
+         
+        var card = new THREE.Mesh( geometry, material );
+        card.castShadow = true;
+        card.receiveShadow = true;
+        card.position.set(-2.28, .2, 1.2);
+        card.rotation.x = -1.58;
+        card.name = "card6"
+        scene.add( card );
+
         //bottom left
         var geometry = new THREE.BoxGeometry( 1.5, 1, .03 );
         var material = new THREE.MeshLambertMaterial({color: (new THREE.Color(tileColor))});

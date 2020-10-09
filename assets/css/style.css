@@ -94,7 +94,7 @@ path{
 .details-screen{
     position: absolute;
     width: 100vw;
-    height: 100vh;
+    background: #f7f7f7;
     z-index: 350;
     display: flex;
     flex-direction: column;
@@ -109,6 +109,7 @@ path{
     flex-direction: row;
     width: 100%;
     margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .details-flex-wrap{
@@ -145,7 +146,9 @@ path{
 }
 
 .media-wrapper{
-    height: 55vh;
+    height: 35vw;
+    max-height: 500px;
+    min-height: 300px;
     border: solid 1px black;
     background-color: black;
 }
