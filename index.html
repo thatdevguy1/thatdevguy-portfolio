@@ -6,7 +6,7 @@
     <title>ThatDevGuy</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@800&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -404,7 +404,7 @@
                     }});
           transitionTl.to( '#info-container', {opacity: 0, duration: .1});
           transitionTl.to( '.logo', {display: "block"}, "-=.1");
-          transitionTl.to( '.logo', {opacity: 1, duration: .7}, ".9");
+          transitionTl.to( '.logo', {opacity: 1, duration: .4}, ".9");
           transitionTl.to( intersected.object.position, {x:intersectsCoords.x, y:.2, z:intersectsCoords.z, duration: 1}, "-.05");
           transitionTl.to( intersected.object.rotation, {x:-1.58, y:0, z:0 , duration: 1}, "-.05");
           
@@ -412,7 +412,7 @@
           
           transitionTl.to( '#info-container', {display: "none"}, ".01");
           transitionTl.to( display, {display: "none"}, ".01");
-          transitionTl.to( '.logo-animation', {display: 'block'}, "+=.1");
+          transitionTl.to( '.logo-animation', {display: 'block'}, "-=.1");
         };
 
         window.addEventListener('mousemove', onMouseMove, false);
@@ -1260,29 +1260,53 @@ viewBox="0 0 200 200">
   </div>
 </div>
 
-
 <div id="info-container">
   <div id="close-info-container"><img src="./assets/close.png" alt="close button" /></div>
   <div id="about-me-container" class="details-screen">
-    <div class="title">About Me</div>
-    <div class="media-wrapper"></div>
-    <div class="details-main-flex-wrap">
-      <div class="details-flex-wrap">
-      <div class="links-wrapper">
-        <div class="big-buttons">View Code</div>
-        <div class="big-buttons">View Site</div>
+    <div class="about-hero">
+      <div id="portrait-wrapper"></div>
+      <div id="about-me-blurb">
+        <h1> HI I'M DAVE </h1>
+        <p> I was born and raised in the Greater Toronto Area of Ontario, I was exposed to computers at a very young age and I've been hooked ever since.
+            As new technologies are made and the IT world advances
+        </p>
+        <div class="project-info">
+          <h1>A Little About Me</h1>
+          <ul>
+            <li>I went to school at Sheridan College for <span class="highlighter">Computer Programming</span></li>
+            <li><span class="highlighter">JavaScript</span> is my favourite language to work with</li>
+            <li>I made my <span class="highlighter">first website</span> when I was <span class="highlighter">11 years old</span>!</li>
+            <li>Some of my <span class="highlighter">hobbies</span> include soccer, reading, drawing, fitness, and gaming</li>
+          </ul>
+        </div>
       </div>
+
     </div>
-    <div class="details-flex-wrap">
-      <div class="project-info">
-        <ul>
-          <li>A</li>
-          <li>little</li>
-          <li>about</li>
-          <li>me</li>
-          <li>Used OAuth 2.0 to login through Blizzard</li>
-          <li>Used MongoDB to store account and messaging information</li>
-        </ul>
+    <div class="details-main-flex-wrap">
+      <div class="details-flex-wrap about-me-details">
+      <div class="links-wrapper">
+        <h1>What I Know</h1>
+        <div id="tech-icons">
+          <i class="devicon-heroku-original-wordmark"></i>
+          <i class="devicon-linux-plain"></i>
+          <i class="devicon-mongodb-plain-wordmark"></i>
+          <i class="devicon-photoshop-line"></i>
+          <i class="devicon-react-original-wordmark"></i>
+          <i class="devicon-sass-original colored"></i>
+          <i class="devicon-sequelize-plain-wordmark"></i>
+          <i class="devicon-github-plain-wordmark"></i>
+          <i class="devicon-express-original-wordmark colored"></i>
+          <i class="devicon-java-plain-wordmark"></i>
+          <i class="devicon-mysql-plain-wordmark"></i>
+          <i class="devicon-nodejs-plain-wordmark"></i>
+          <i class="devicon-php-plain"></i>
+          <i class="devicon-html5-plain-wordmark"></i>
+          <i class="devicon-css3-plain-wordmark"></i>
+          <i class="devicon-angularjs-plain-wordmark"></i>
+          <i class="devicon-bootstrap-plain-wordmark"></i>
+          <i class="devicon-javascript-plain"></i>
+          <i class="devicon-jquery-plain-wordmark"></i>
+        </div>
       </div>
     </div>
     </div>
@@ -1299,7 +1323,7 @@ viewBox="0 0 200 200">
       <div class="project-info">
         <ul>
           <li>Used  <span class="highlighter">React</span> to create a single page application</li>
-          <li>Used <span class="highlighter">Material</span> UI for some design elements</li>
+          <li>Used <span class="highlighter">Material UI</span> for some design elements</li>
           <li>Used <span class="highlighter">Chart.js</span> to create the graphs</li>
           <li>Used an external <span class="highlighter">API</span> to get the graph data</li>
           <li>Used <span class="highlighter">Axios</span> to make <span class="highlighter">AJAX</span> calls</li>
